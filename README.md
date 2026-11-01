@@ -100,7 +100,7 @@ $$\hat{y} = \sigma\left(\frac{1}{M}\sum_{m=1}^{M} \text{logit}(p_m)\right) = \fr
 Clone the repository and install dependencies in a clean virtual environment:
 
 ```bash
-git clone https://github.com/cosmosag56/deepfake-detection-ensemble.git
+git clone https://github.com/comosag56/deepfake-detection-ensemble.git
 cd deepfake-detection-ensemble
 
 # Install PyTorch with CUDA 12.6 support
@@ -110,7 +110,7 @@ pip install -r requirements.txt
 
 ### 2. Download Model Weights
 Due to GitHub's 100 MB file size limit, the unified ensemble weight package (`model_weights.pt`, 530 MB) is hosted externally:
-- **Download Link**: [Google Drive / Release Model Weights](https://drive.google.com/) *(place `model_weights.pt` in the repository root)*
+- **Download Link**: [Google Drive: Model Weights & Deliverables Folder](https://drive.google.com/drive/folders/1MI6dVhT2VxNYkPYArveLacpukW_y1pYV?usp=sharing) *(download and place `model_weights.pt` in the repository root)*
 
 ### 3. Run Test Inference
 Generate predictions for an unlabelled folder of 224×224 face crops:
