@@ -1,8 +1,8 @@
 # Deepfake Detection: 6-Member Heterogeneous Ensemble with Explainable AI (Grad-CAM)
 
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.14.1%20%2B%20CUDA%2012.6-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![Torchvision](https://img.shields.io/badge/Torchvision-0.29.1-orange)](https://pytorch.org/vision/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Torchvision](https://img.shields.io/badge/Torchvision-%E2%89%A50.15.0-orange)](https://pytorch.org/vision/)
 [![Ensemble](https://img.shields.io/badge/Ensemble-6--Member%20Heterogeneous-blue)](#ensemble-architecture)
 [![Validation AUC](https://img.shields.io/badge/Validation%20AUC-0.9007-brightgreen)](#benchmark--evaluation-metrics)
 [![Canary Discrepancy](https://img.shields.io/badge/Canary%20Discrepancy-0.00000000-success)](#strict-reproducibility--canary-verification)
@@ -103,8 +103,7 @@ Clone the repository and install dependencies in a clean virtual environment:
 git clone https://github.com/comosag56/deepfake-detection-ensemble.git
 cd deepfake-detection-ensemble
 
-# Install PyTorch with CUDA 12.6 support
-pip install torch==2.14.1 torchvision==0.29.1 --index-url https://download.pytorch.org/whl/cu126
+# Install dependencies (compatible with standard PyTorch 2.x environments)
 pip install -r requirements.txt
 ```
 
