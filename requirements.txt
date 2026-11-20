@@ -1,4 +1,4 @@
-# Deepfake Detection Ensemble - Team MADD
+# Deepfake Detection Ensemble: Production-Grade Multi-Architecture Computer Vision Pipeline
 # Compatible with Python 3.10+ and standard PyTorch 2.x environments (CPU & GPU)
 
 torch>=2.0.0
@@ -8,3 +8,9 @@ pandas>=2.0.0
 pillow>=9.0.0
 scikit-learn>=1.2.0
 scipy>=1.10.0
+onnxruntime>=1.16.0
+
+# Optional dependencies for cross-framework ONNX / TensorFlow Lite export and inference:
+# onnx>=1.14.0
+# tensorflow>=2.15.0 (or tflite-runtime>=2.14.0)
+# onnx2tf>=2.6.0

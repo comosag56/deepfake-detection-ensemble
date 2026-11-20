@@ -8,18 +8,6 @@ __pycache__/
 .Python
 
 # ==============================================================================
-# PyTorch Checkpoints & Large Model Weights (>100MB exceeds GitHub limits)
-# Download model_weights.pt from the link in README.md
-# ==============================================================================
-*.pt
-*.pth
-*.bin
-*.h5
-*.onnx
-*.ckpt
-runs/
-
-# ==============================================================================
 # Virtual Environments
 # ==============================================================================
 .env
@@ -31,18 +19,10 @@ env.bak/
 venv.bak/
 
 # ==============================================================================
-# Raw Datasets & Image Dumps
+# Model Runs & Temporary Logs
 # ==============================================================================
-data/
-datasets/
-val_images/
-hackathon_dataset/
-*.zip
-*.tar.gz
-*.tar
-
-# Allow source_code.zip specifically
-!source_code.zip
+runs/
+*.log
 
 # ==============================================================================
 # OS & IDE Temp Files
@@ -53,3 +33,21 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# ==============================================================================
+# Model Weights & Large Binaries (>100MB exceeds GitHub push limit)
+# Pretrained checkpoints are hosted on Google Drive (link in README.md)
+# ==============================================================================
+*.pt
+*.onnx
+*.tflite
+*.bin
+*.pth
+
+# ==============================================================================
+# Datasets & Temp Archives
+# ==============================================================================
+data/
+datasets/
+val_images/
+hackathon_dataset/

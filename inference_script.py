@@ -150,7 +150,8 @@ def main():
     ap.add_argument("--threshold", type=float, default=0.5)
     ap.add_argument("--model", default=None, help="only needed if --weights is a plain single-model state_dict")
     ap.add_argument("--fp16", action="store_true")
-    ap.add_argument("--tta_flip", action="store_true")
+    ap.add_argument("--no_tta", action="store_true", help="disable horizontal flip test-time augmentation")
+    ap.add_argument("--tta_flip", action="store_true", default=True, help="enable horizontal flip test-time augmentation (default: True)")
     ap.add_argument("--blend", choices=["logit", "prob"], default="logit",
                     help="how to combine models: average log-odds (default) or average probabilities")
     ap.add_argument("--labels_csv", default=None, help="optional csv with image_id,label to print AUC/accuracy")
@@ -162,12 +163,16 @@ def main():
     ds = TestDataset(args.test_dir)
     loader = DataLoader(ds, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers,
                         pin_memory=(device.type == "cuda"))
+
+    use_tta = not args.no_tta
+    if not use_tta:
+        print("[INFO] Test-Time Augmentation (TTA) disabled via --no_tta.")
     print(f"[INFO] {len(ds)} images, batch size {args.batch_size}, "
-          f"{'fp16' if args.fp16 and device.type == 'cuda' else 'fp32'}, flip-averaging {'on' if args.tta_flip else 'off'}, "
+          f"{'fp16' if args.fp16 and device.type == 'cuda' else 'fp32'}, flip-averaging {'on' if use_tta else 'off'}, "
           f"blend: {args.blend}")
 
     t1 = time.time()
-    ids, probs = predict(nets, loader, device, args.fp16, args.tta_flip, args.blend)
+    ids, probs = predict(nets, loader, device, args.fp16, use_tta, args.blend)
     probs = np.clip(probs, 0.0, 1.0)
     t2 = time.time()
 
